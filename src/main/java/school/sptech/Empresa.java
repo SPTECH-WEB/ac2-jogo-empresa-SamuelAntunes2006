@@ -24,12 +24,16 @@ public class Empresa {
 
     // adicionar
 
-   public void adicionarJogo(Jogo jogo){
-        jogos.add(jogo);
-   }
-
-
-    // remover
+    public void adicionarJogo(Jogo jogo) {
+        if (jogo != null) {
+            if (jogo.getNome() != null && jogo.getCodigo() != null && jogo.getGenero() != null && jogo.getPreco() != null && jogo.getDataLancamento() != null) {
+                if (jogo.getAvaliacao() != null && jogo.getAvaliacao() >= 0 && jogo.getAvaliacao() <= 5) {
+                    jogos.add(jogo);
+                }
+            }
+        }
+    }
+            // remover
     public void removerJogoPorCodigo(String codigo){
             if (codigo != null) {
                 for (int i = 0; i < jogos.size();i++) {
@@ -42,10 +46,9 @@ public class Empresa {
             }
     }
 
-
     public List<Jogo> buscarJogoPorPeriodo(LocalDate dataInicio, LocalDate dataFim){
             for(int i =0; i< jogos.size();i++){}
-        return List.of();
+        return jogos;
     }
 
 // buscar
